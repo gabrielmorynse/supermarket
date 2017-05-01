@@ -26,6 +26,8 @@ var Game = {
 
 		var piso = plataforms.create(0,game.world.height - 64,'piso');
 
+		
+
 		player = game.add.sprite();
 
 		itens = game.add.group();
