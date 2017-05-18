@@ -4,7 +4,9 @@ var plataforms;
 var keys;
 var txtPontos;
 var pontos = 0;
-
+var counter = 0;
+var text = 0;
+var music;
 var Game = {
 
 	/*carregar os recurso durante o carregamento do jogo*/
@@ -19,6 +21,7 @@ var Game = {
 		game.load.image('melancia','image/melancia.png');
 		game.load.image('prate','image/prate.png');
 		game.load.image('carFundo','image/carFundo.png');
+		game.load.audio('Roberto', ['Music/Roberto.mp3', 'Music/Roberto.mp3']);
 	},
 
 	/*criar os elementos que vão ser usados */
@@ -47,6 +50,8 @@ var Game = {
 
 		game.input.mouse.capture = true;
 
+		text = game.add.text(game.world.centerX, game.world.centerY, 'Tempo: 0', {fontSize:'18px', fill:'#fff'});
+    		text.anchor.setTo(0, 10.8);
 
 		for(var i = 0; i <1; i++){
 				
@@ -96,6 +101,9 @@ var Game = {
     			item.input.enableDrag(true);
 
     			txtPontos = game.add.text(10,10,'Pontos: 0',{fontSize:'18px', fill:'#fff'});
+
+    			game.time.events.loop(Phaser.Timer.SECOND, updateCounter, this);
+
 		}
 	},
 
@@ -108,7 +116,7 @@ var Game = {
     	game.debug.text("Middle Button: " + game.input.activePointer.middleButton.isDown, 300, 196);
     	game.debug.text("Right Button: " + game.input.activePointer.rightButton.isDown, 300, 260);
 
-	}
+	},
 
 };
 
