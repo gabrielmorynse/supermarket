@@ -1,0 +1,74 @@
+		<html>
+		<head>
+			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+			<link rel="stylesheet" type="text/css" href="css/style.css">
+			
+			
+
+		</head>
+		<body id="page-top">
+
+			<div id="foo">
+				<h1>Hora de Memorizar</h1>
+				<hr>
+				<div class="row">
+					<div class="col-xs-4 bordaBranca"><h1>Arroz</h1></div>
+					<div class="col-xs-4 bordaBranca"><h1>Feijão</h1></div>
+					<div class="col-xs-4 bordaBranca"><h1>Melancia</h1></div>
+				</div>
+				<div class="row>
+					<div class="col-xs-12">
+						<h1> 
+							Tempo restante: <span id="tempo" />
+						</h1>
+					</div>
+				</div>
+			</div>
+
+	
+			<nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        		<div class="container-fluid">
+            		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                		<ul class="nav navbar-nav navbar-right">
+                    
+                    		<li>
+                        		<a class="page-scroll" href="Music/KnifeParty.mp3">Audio</a>
+                    		</li>
+                    		<li>
+                        		<a class="page-scroll" href="#Sair" value="Sair" onclick="window.close() ">Sair</a>
+                    		</li>
+                		</ul>
+            		</div>
+      			</div>
+    		</nav>
+
+
+
+		</body>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="js/phaser.min.js"></script>
+		<script src="js/script.js"></script>
+
+
+		<script>
+			var contador = 5;
+
+			function temporizador() {
+				if(contador > 0){
+					setTimeout(temporizador,1000);
+				} else {
+					$('#foo').hide();
+				}
+				$('#tempo').text(contador);
+				contador--;
+			}
+
+			$().ready(
+				function() {
+					$("#foo").slideDown("slow");
+					setTimeout(temporizador, 0);
+				}
+				);
+
+			</script>
+			<html>
